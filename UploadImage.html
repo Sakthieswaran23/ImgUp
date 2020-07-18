@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Upload Image</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="js/bootstrap.min.js">
+        <link rel="stylesheet" href="./upload.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="title-container">
+            <div class="title-text">
+                ImgUp
+            </div>
+            <div>
+                <img src="login.png" class="title-icon" alt="icon">
+            </div>
+        </div>
+        <div class="login-container">
+            <button class="btn btn-primary btn-sm" onclick="onLogout()">Logout</button>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                  <input 
+                    type="file"  
+                    accept="image/*" 
+                    name="image" 
+                    id="file"  
+                    onchange="loadFile(event)" 
+                    style="display: none;"
+                    >
+                  <label for="file" style="cursor: pointer;">
+                    Upload Image
+                  </label>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <label style="cursor: pointer;" onclick="displayFunction(source)">
+                  Display Image
+                </label>
+              </a>
+            </li>
+          </ul>
+            <div class="heading-container">
+                <h4 id="empty" class="heading"></h4>
+                <span class="emoji">&#128522;</span>
+            </div>
+            <div class='text-container'>
+                    <h3 id="upload"></h3>
+                    <h3 id="fileName"></h3>
+            </div>
+            <div style="text-align: center">
+                <img id="output" style="height: 450px; width: 450px; display: none;" ></img>
+            </div>
+            <script>
+                let source = '';
+                    document.getElementById('empty').innerHTML = `Hi click The 'Upload Image' tab to uploading image...`;
+                const loadFile = function(event) {
+                    source = URL.createObjectURL(event.target.files[0]);
+                    if(source) {
+                        document.getElementById('empty').innerHTML = '';
+                        document.getElementsByClassName('emoji').innerHTML = '';
+                        document.getElementById('upload').innerHTML = 'Your Image Successfully Uploaded!';
+                        document.getElementById('fileName').innerHTML = `Image file name: '${event.target.files[0].name}' `;
+                    }
+                };
+                const displayFunction = function(value) {
+                    if(value === '') {
+                        document.getElementById('upload').innerHTML = 'Please Upload file'
+                    } else {
+                        document.getElementById('output').style.display = 'inline-block';
+                        document.getElementById('upload').style.display = 'none';
+                        var displayImage = document.getElementById('output');
+                        displayImage.src = value;   
+                    }
+            }
+                const onLogout = function() {
+                   window.location.replace('Login.html') 
+                }
+            </script>
+    </body>
+</html>

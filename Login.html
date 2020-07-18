@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Facebook Login</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="js/bootstrap.min.js">
+<link rel="stylesheet" href="./login.css">
+<meta charset="UTF-8">
+</head>
+<body>
+<script>
+
+  function statusChangeCallback(response) {  
+    if (response.status === 'connected') {   
+      testAPI();  
+    } else {
+      alert('Invalid login')
+    }
+  }
+
+
+  function checkLoginState() {               
+    FB.getLoginStatus(function(response) {  
+      statusChangeCallback(response);
+    });
+  }
+
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : 888356228004981,
+      cookie     : true,                     
+      xfbml      : true,                     
+      version    : 'v7.0'                       
+    });
+
+
+    FB.getLoginStatus(function(response) {   
+      statusChangeCallback(response);        
+    });
+  };
+ 
+  function testAPI() {                      
+    FB.api('/me', function(response) {
+      console.log('response', response)
+      window.location.replace('UploadImage.html')
+    });
+  }
+
+</script>
+  <div class="header-container">
+    <h2 class="title-align">Welcome To Our <span style="color: #3399db;">ImgUp</span> Site :)</h2>
+    <h6 class="sub-title">
+      Enjoy by uploading images
+    </h6>
+  </div>
+      <div class="button-container">
+        <div>
+          <img src="login.png" alt="file-upload" class="image-container">
+        </div>
+        <div 
+          class="fb-login-button button-alignment" 
+          data-size="large" 
+          data-button-type="login_with" 
+          data-layout="default" 
+          data-auto-logout-link="false" 
+          data-use-continue-as="true" 
+          data-width=""
+          onlogin="checkLoginState()"
+        >
+        </div>
+      </div>
+  
+</div>
+
+<div id="fb-root"></div>
+<script async defer 
+    crossorigin="anonymous" 
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=888356228004981&autoLogAppEvents=1" 
+    nonce="OtAB9Kyi"
+>
+</script>
+</body>
+</html>

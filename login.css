@@ -1,0 +1,25 @@
+body {
+    background-color: #000000;
+}
+.header-container {
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+.title-align {
+    margin-top: 30px;
+}
+.sub-title {
+    margin-top: 2px;
+}
+.button-container {
+    text-align: center;
+    margin-top: 5%;
+}
+.image-container {
+    width: 270px;
+    height: 200px;
+}
+.button-alignment {
+    margin-top: 60px;
+}

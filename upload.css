@@ -1,0 +1,41 @@
+body {
+    background-color: #000000;
+}
+.title-container {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+.title-text {
+    font-size: 30px;
+    font-style: italic;
+    color: #ffffff;
+    font-weight: bold;
+}
+.title-icon {
+    width: 45px;
+    height: 40px;
+    margin-left: 8px;
+}
+.text-container {
+    color: #3399db;
+    text-align: center;
+    padding: 30px;
+}
+.heading-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.heading {
+    color: #999999;
+}
+.emoji {
+    font-size: 25px;
+    margin-left: 5px;
+}                
+.login-container {
+    text-align: end;
+}
+
+ 
